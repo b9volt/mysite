@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
@@ -39,5 +39,5 @@ def vote(request, question_id):
     })
     else:
         selected_choice.votes += 1
-        selceted_choice.save()
+        selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
